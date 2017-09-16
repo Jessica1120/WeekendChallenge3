@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 app.use('/', indexRouter);
-//app.use('/task', requestRouter);
+app.use('/tasks', requestRouter);
 
 //server spin-up
 app.listen(3000, function(){

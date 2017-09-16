@@ -1,4 +1,4 @@
-var Pool = require('pg)');
+var Pool = require('pg').Pool;
 
 var config = {
     host: 'localhost',
