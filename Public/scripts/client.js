@@ -3,6 +3,8 @@ $(document).ready(pageLoad);
 function pageLoad(){
     console.log('start to do');
     getTasks();
+    $('#add').on('click', addTask);
+    $('#tasks').on('click', '.done', doneTask);
     $('#tasks').on('click', '.delete', deleteTask);
 }
 
@@ -25,10 +27,18 @@ function getTasks() {
     }) //end ajax call
 } //end getTasks
 
+function addTask() {
+    console.log('add button clicked');
+}
+
+function doneTask() {
+    console.log('done button clicked');
+}
+
 function deleteTask() {
     console.log('delete button clicked');
     // $.ajax( {
-    //     type:   'POST',
+    //     type:   'DELETE',
     //     url:    '/tasks',
     //     success:    
     // })
