@@ -14,15 +14,23 @@ function getTasks() {
         url:    '/tasks',
         success: function(res) {
             console.log('in for loop');
-            $('#tasks').empty();
+            $('#incomplete').empty();
+            $('#complete').empty();
             for (var i=0; i < res.length; i++) {
-                var $taskP = $('<div>' + res[i].task + ' ' + res[i].done + '</div>').data('id', res[i].id);
-                console.log(res[i].task);
+                var $taskP = $('<div>' + res[i].task + '</div>').data('id', res[i].id);
+                // console.log(res[i].task);
                 var $delete = $('<button class="delete">Delete</button>');
                 var $update = $('<button class="done">Done</button>');
                 $($taskP).append($update)
                 $($taskP).append($delete);
-                $('#tasks').append($taskP);
+                //$('#tasks').append($taskP);
+                if (res[i].done === false)  { 
+                    $($taskP).css('color', 'red');
+                    $('#incomplete').append($taskP);
+                } else {
+                    $($taskP).css('text-decoration', 'line-through'); 
+                    $('#complete').append($taskP);   
+                }; //end if/else
             }//end for loop
         } //end success function
     }); //end ajax call
@@ -41,6 +49,7 @@ function addTask() {
         success:    function(res){
             console.log('task added to DB');
         getTasks();
+        $('#task').val('')
         }   //end success function
     });//end ajax POST
 } //end addTask function
@@ -70,3 +79,19 @@ function deleteTask() {
         } //end success function
      });//end ajax DELETE
 }// end deleteTask function
+
+
+
+
+
+                 //     if(res[i].done = false) {
+            //         //console.log(res[i].done);
+            //         $('#tasks').append($taskP);
+            //         $($taskP).append($update);
+            //         $($taskP).append($delete);        
+            //    } else {
+            //         console.log(res[i].done);
+            //         $($taskP).append($update);
+            //         $($taskP).append($delete);
+            //         $('#done').append($taskP); 
+            //    }// end if/else statement

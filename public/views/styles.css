@@ -1,0 +1,14 @@
+body {
+    background-color: #A3F5A8;
+}
+
+
+.container-fluid {
+    height: 300 px;
+    background-color: purple;
+}
+
+.col-md-3 {
+    height:100px;
+    background-color: blueviolet;
+}
