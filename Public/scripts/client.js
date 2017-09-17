@@ -46,9 +46,17 @@ function addTask() {
 } //end addTask function
 
 function doneTask() {
+    var thisId = $(this).parent().data('id');
     console.log('done button clicked');
-    //$.ajax()
-}
+    $.ajax( {
+        type:   'PUT',
+        url:    '/tasks/' + thisId,
+        success: function(res) {
+            console.log('server resp:', res);
+            getTasks();
+        }//end success function
+     });//end ajax PUT
+}//end doneTask function
 
 function deleteTask() {
     var thisId = $(this).parent().data('id');

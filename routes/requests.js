@@ -46,6 +46,27 @@ router.post('/', function(req, res) {
     }) //end pool function
 }) // end post function
 
+router.put('/:id', function(req, res) {
+    console.log('in done route');
+    var doneTask = req.params.id;
+    pool.connect(function(connectionError, client, done) {
+        if(connectionError) {
+            console.log(connectionError);
+            res.sendStatus(500);
+        } else {
+            client.query('UPDATE to_do SET done= NOT done WHERE id=$1;', [doneTask], function(queryError, result){
+                done();
+                if(queryError) {
+                    console.log(queryError);
+                    res.sendStatus(500);
+                } else {
+                    res.sendStatus(202);
+                } //end query if/else statement
+            }) //end query
+        } //end connectionError if/else statement
+    })// end pool function
+})//end done function
+
 router.delete('/:id', function(req, res) {
     console.log('in delete route');
     var deleteTask = req.params.id;
