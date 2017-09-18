@@ -1,14 +1,40 @@
-body {
-    background-color: #A3F5A8;
-}
-
-
 .container-fluid {
-    height: 300 px;
-    background-color: purple;
+    background-color: #FF7E5F;
+    text-align: center;
+    color:  #351C4D;
+    font-family:    Palatino;
+    border-right: 0px;
+    border-left:    0px;
+    border-top: 5px;
+    border-bottom: 5px;
+    border-style: solid;
+    border-color: #351C4D;
 }
 
-.col-md-3 {
-    height:100px;
-    background-color: blueviolet;
+body{
+    background-color: #FEB478;
+}
+
+#add {
+    color:  #351C4D;
+    font-family:    Palatino;
+    margin: 20px;
+    font-size: 20px;
+}
+
+#addTask {
+    background-color:  #765285;
+    color:  white;
+}
+
+.container {
+    
+    background-color: #351C4D;
+    text-align: center;
+    font-family:    Palatino;
+    color:  #F5AB99;
+    font-size: 15px; 
+    margin: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px; 
 }

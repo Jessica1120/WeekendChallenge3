@@ -17,15 +17,12 @@ function getTasks() {
             $('#incomplete').empty();
             $('#complete').empty();
             for (var i=0; i < res.length; i++) {
-                var $taskP = $('<div>' + res[i].task + '</div>').data('id', res[i].id);
-                // console.log(res[i].task);
-                var $delete = $('<button class="delete">Delete</button>');
-                var $update = $('<button class="done">Done</button>');
+                var $taskP = $('<div>' + res[i].task + '</div>').data('id', res[i].id).css('padding', '10px');
+                var $delete = $('<button class="delete">Delete</button>').css('background-color', '#765285');
+                var $update = $('<button>Done</button>').css('background-color', '#765285');
                 $($taskP).append($update)
                 $($taskP).append($delete);
-                //$('#tasks').append($taskP);
-                if (res[i].done === false)  { 
-                    $($taskP).css('color', 'red');
+                if (res[i].done === false)  {
                     $('#incomplete').append($taskP);
                 } else {
                     $($taskP).css('text-decoration', 'line-through'); 
@@ -80,18 +77,3 @@ function deleteTask() {
      });//end ajax DELETE
 }// end deleteTask function
 
-
-
-
-
-                 //     if(res[i].done = false) {
-            //         //console.log(res[i].done);
-            //         $('#tasks').append($taskP);
-            //         $($taskP).append($update);
-            //         $($taskP).append($delete);        
-            //    } else {
-            //         console.log(res[i].done);
-            //         $($taskP).append($update);
-            //         $($taskP).append($delete);
-            //         $('#done').append($taskP); 
-            //    }// end if/else statement
